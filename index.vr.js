@@ -134,13 +134,13 @@ export default class SoundsGame extends React.Component {
       <Model
         source={{
           obj: asset('drum1.obj'),
+          mtl: asset('drum1.mtl')
         }}
         style={{
-          transform: [{translate: [-15 , -7 , -9  ]}, {scale : 0.0015 },
+          transform: [{translate: [-14.7 , -7 , -9  ]}, {scale : 0.0015 },
           {rotateX : 0}, {rotateY: 0}, {rotateZ:0}], layoutOrigin: [0.3, 0.3]
         }}
-        texture={'/static_assets/drum_kit_diffuse.jpg'}
-         
+        lit={true}
         id={3}
       ></Model>,
       <Model
@@ -183,7 +183,7 @@ export default class SoundsGame extends React.Component {
   ];
   return (
     <View>
-      <Scene style={{transform: [{translate: [-15, -7, -3]}, {rotateY: 0}]}} />
+      <Scene style={{transform: [{translate: [-15, -7, 10]}, {rotateY: 0}]}} />
 
       <Text
         style={styles.score}>
@@ -202,10 +202,13 @@ export default class SoundsGame extends React.Component {
       {rotateX : 0}, {rotateY: 5}, {rotateZ:0}], layoutOrigin: [0.5, 0.5]}} lit={true}/>
 
       <Model source={{
-        obj: asset('tree.obj'),
-        mtl: asset('tree.mtl')
-      }}style={{transform: [{ translate: [ 2, 0, -1 ]},
-      {rotateX : 0}, {rotateY: 5}, {rotateZ:0}], layoutOrigin: [0.5, 0.5]}} lit={true}/>
+        obj: asset('William_ODonnell_Family.obj'),
+        mtl: asset('William_ODonnell_Family.mtl')
+      }}
+      style={{transform: [{ translate: [ -15, -7, 5 ]}, {scale: 1},
+      {rotateX : 0}, {rotateY: 90}, {rotateZ:180}], layoutOrigin: [0.5, 0.5]}} lit={true}
+      // texture={'/static_assets/AudienceTextures/Audience_TEXT.png'}
+    />
 
 
       <Model source={{
@@ -221,7 +224,7 @@ export default class SoundsGame extends React.Component {
         sound={this.state.startButtonSound.sound}
         play={this.state.startButtonSoundPlay }/>
 
-      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={0.7} angle={180} style={{transform: [{translate: [ -15, 0, -14]}]}} />
+      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={0.7} angle={190} style={{transform: [{translate: [ -14.5, -7, -9]}]}} />
 
       {instruments.map((instrument, index) => {
         return (
@@ -241,9 +244,9 @@ export default class SoundsGame extends React.Component {
 
 const styles = StyleSheet.create({
   score:{
-    fontSize: 0.7,
+    fontSize: 4,
     transform:[
-      {translate: [-14, -6, -6]}
+      {translate: [-14, -5, -6]}
     ]
   },
 });

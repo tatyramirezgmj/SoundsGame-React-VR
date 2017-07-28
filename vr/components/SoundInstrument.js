@@ -25,7 +25,7 @@ export default class SoundInstrument extends Component {
       this.state.bounceValue,
       {
         toValue:0,
-        duration:50,
+        duration:500,
       }
     ).start();
   }
@@ -39,15 +39,15 @@ export default class SoundInstrument extends Component {
           ],
         }}
         >
-          <VrButton
-            onClick={()=> this.props.onClick()}
-            onEnter={() => this.animateOnEnter()}
-            onExit={()=> this.animateOnExit()}
-            >
-              {this.props.children}
-            </VrButton>
-            <Sound playerState={this.props.playerState} source={this.props.sound}/>
-          </Animated.View>
-        );
-      }
-    };
+        <VrButton
+          onClick={()=> this.props.onClick()}
+          onEnter={() => this.animateOnEnter()}
+          onExit={()=> this.animateOnExit()}
+          >
+            {this.props.children}
+        </VrButton>
+        <Sound playerState={this.props.playerState} source={this.props.sound}/>
+      </Animated.View>
+    );
+  }
+};

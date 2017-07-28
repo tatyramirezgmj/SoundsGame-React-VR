@@ -28,11 +28,7 @@ export default class Button extends Component {
 
 
   playStatusChanged(event) {
-    console.log('play status changed')
-    console.log(event.nativeEvent.playStatus)
     if (event.nativeEvent.playStatus === 'ready') {
-      console.log('ready!')
-      console.log(this.props)
       if (this.props.play) {
         this.props.playerState.seekTo(0)
         this.props.playerState.play()
@@ -42,8 +38,6 @@ export default class Button extends Component {
 
   render(){
     // let { startGame } = this.props;
-    console.log('button render props')
-    console.log(this.props)
     return(
       <VrButton style={this.styles.button}
         onClick={()=> this.props.onStart()}>
