@@ -87,7 +87,7 @@ export default class SoundsGame extends React.Component {
   }
 
   // componentDidMount(){
-  //   fetch('/url', {
+  //   fetch('http://localhost:8081/vr/index.html', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -219,8 +219,7 @@ export default class SoundsGame extends React.Component {
       <Model source={{
         obj: asset('stage.obj'),
         mtl: asset('stage.mtl')
-      }} style={{transform: [{ translate: [ -14,-10, -14 ]}, {scale: 0.7  },
-      {rotateX : 0}, {rotateY: 0}, {rotateZ:0}], layoutOrigin: [0.5, 0.5]}} />
+      }} style={{transform: [{ translate: [ -14,-10, -14 ]}, {scale: 75  }], layoutOrigin: [0.5, 0.5]}} />
 
       <Button
         text="Start Playing"
@@ -229,7 +228,7 @@ export default class SoundsGame extends React.Component {
         sound={this.state.startButtonSound.sound}
         play={this.state.startButtonSoundPlay }/>
 
-      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={0.7} angle={190} style={{transform: [{translate: [ -17, -7, -9]}]}} />
+      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={1} angle={190} style={{transform: [{translate: [ -17, -7, -9]}]}} />
 
       {instruments.map((instrument, index) => {
         return (
