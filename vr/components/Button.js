@@ -12,7 +12,7 @@ export default class Button extends Component {
         backgroundColor: 'rgba(242, 240, 244, 0.67)',
         borderRadius: 0.01,
         borderColor: 'rgb(63, 230, 220)',
-        transform: [{translate: [-17, -5.2, -6]}]
+        transform: [{translate: [-16, -5.2, -6]}]
       },
       text: {
         fontSize: 0.4,

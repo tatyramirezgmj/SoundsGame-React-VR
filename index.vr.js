@@ -73,10 +73,6 @@ export default class SoundsGame extends React.Component {
     })
   }
 
-  componentDidUpdate(){
-    this.state.score
-  }
-
   newInstrumentClicked(index) {
     let startSound = this.state.startSounds[index]
     this.setState({
@@ -113,7 +109,7 @@ export default class SoundsGame extends React.Component {
           mtl: asset('Piano.mtl'),
         }}
         style={{
-          transform: [{translate: [-16.3, -6.1, -4.7]}, {scale : 0.3},
+          transform: [{translate: [-16.8, -6.2, -4]}, {scale : 0.3},
           {rotateX : 0}, {rotateY: 30}, {rotateZ:0}], layoutOrigin: [0.3, 0.3]
         }}
         lit={true}
@@ -125,21 +121,22 @@ export default class SoundsGame extends React.Component {
           mtl:asset('guitar.mtl')
         }}
         style={{
-          transform: [{translate: [-15.5 , -5.7 , -4.7 ]}, {scale : 0.0007 },
-          {rotateX : 0}, {rotateY: -20 }, {rotateZ:0}]
+          transform: [{translate: [-15 , -5.7 , -4.7 ]}, {scale : 0.0010  },
+          {rotateX : 0}, {rotateY: -30 }, {rotateZ:0}]
         }}
         lit={true}
         id={2}
       ></Model>,
       <Model
         source={{
-          obj: asset('drum1.obj'),
-          mtl: asset('drum1.mtl')
+          obj: asset('drum-kit.obj'),
+          mtl: asset('drum-kit.mtl')
         }}
         style={{
-          transform: [{translate: [-14.7 , -7 , -9  ]}, {scale : 0.0015 },
-          {rotateX : 0}, {rotateY: 0}, {rotateZ:0}], layoutOrigin: [0.3, 0.3]
+          transform: [{translate: [-13 , -7 , -11  ]}, {scale :3 },
+          {rotateX : 0}, {rotateY: -40}, {rotateZ:0}], layoutOrigin: [0.3, 0.3]
         }}
+
         lit={true}
         id={3}
       ></Model>,
@@ -160,8 +157,8 @@ export default class SoundsGame extends React.Component {
           obj: asset('violin.obj'),
         }}
         style={{
-          transform: [{ translate: [ -17.4, -7, -9 ]}, {scale: 0.15},
-          {rotateX : 0}, {rotateY: 40}, {rotateZ:0}]
+          transform: [{ translate: [ -17.8, -7, -9 ]}, {scale: 0.15},
+          {rotateX : 0}, {rotateY: 50}, {rotateZ:0}]
         }}
         texture={'/static_assets/3.bmp'}
         lit={true}
@@ -174,20 +171,29 @@ export default class SoundsGame extends React.Component {
         }}
         style={{
           transform: [{ translate: [ -14, -7.5, -8 ]}, {scale: 0.13},
-          {rotateX : 0}, {rotateY: -80}, {rotateZ:0}]
+          {rotateX : 0}, {rotateY: -50}, {rotateZ:0}]
         }}
         texture={'/static_assets/3.bmp'}
         lit={true}
         id={6}>
       </Model>
   ];
+
+  const styles = StyleSheet.create({
+    score:{
+      fontSize: 0.4,
+      transform:[
+        {translate: [-14, -5, -6]}
+      ]
+    },
+  });
+
   return (
     <View>
-      <Scene style={{transform: [{translate: [-15, -7, 10]}, {rotateY: 0}]}} />
+      <Scene style={{transform: [{translate: [-15, -5.5, 0]}, {rotateY: 0}]}} />
 
-      <Text
-        style={styles.score}>
-        {this.state.score}</Text>
+      {/* <Text style={styles.score}>
+        Score: {this.state.score}</Text> */}
 
       <Pano source={asset('sky.jpg')}/>
 
@@ -206,8 +212,7 @@ export default class SoundsGame extends React.Component {
         mtl: asset('William_ODonnell_Family.mtl')
       }}
       style={{transform: [{ translate: [ -15, -7, 5 ]}, {scale: 1},
-      {rotateX : 0}, {rotateY: 90}, {rotateZ:180}], layoutOrigin: [0.5, 0.5]}} lit={true}
-      // texture={'/static_assets/AudienceTextures/Audience_TEXT.png'}
+      {rotateX : 0}, {rotateY: 100}, {rotateZ:180}], layoutOrigin: [0.5, 0.5]}}
     />
 
 
@@ -224,7 +229,7 @@ export default class SoundsGame extends React.Component {
         sound={this.state.startButtonSound.sound}
         play={this.state.startButtonSoundPlay }/>
 
-      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={0.7} angle={190} style={{transform: [{translate: [ -14.5, -7, -9]}]}} />
+      <SpotLight color = "rgba(232, 227, 153, 0.8)" intensity={0.7} angle={190} style={{transform: [{translate: [ -17, -7, -9]}]}} />
 
       {instruments.map((instrument, index) => {
         return (
@@ -241,15 +246,5 @@ export default class SoundsGame extends React.Component {
   );
 }
 };
-
-const styles = StyleSheet.create({
-  score:{
-    fontSize: 4,
-    transform:[
-      {translate: [-14, -5, -6]}
-    ]
-  },
-});
-
 
 AppRegistry.registerComponent('SoundsGame', () => SoundsGame);
