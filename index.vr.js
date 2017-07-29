@@ -109,7 +109,7 @@ export default class SoundsGame extends React.Component {
           mtl: asset('Piano.mtl'),
         }}
         style={{
-          transform: [{translate: [-16.8, -6.2, -4]}, {scale : 0.3},
+          transform: [{translate: [-17, -6.2, -4.5]}, {scale : 0.4},
           {rotateX : 0}, {rotateY: 30}, {rotateZ:0}], layoutOrigin: [0.3, 0.3]
         }}
         lit={true}
