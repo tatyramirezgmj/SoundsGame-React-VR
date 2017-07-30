@@ -13,20 +13,20 @@ const randomNumber = () => {
   return cycle
 }
 const WIN_SOUNDS = [
-  {id: 1, sound: asset('final_sample/piano_win.wav'), playerState: new MediaPlayerState({})},
-  {id: 2, sound: asset('final_sample/acc_guitar_win.wav'), playerState: new MediaPlayerState({})},
-  {id: 3, sound: asset('final_sample/drum_win.wav'), playerState: new MediaPlayerState({})},
+  {id: 1, sound: asset('final_sample/piano_win.mp3'), playerState: new MediaPlayerState({})},
+  {id: 2, sound: asset('final_sample/acc_guitar_win.mp3'), playerState: new MediaPlayerState({})},
+  {id: 3, sound: asset('final_sample/drum_win.mp3'), playerState: new MediaPlayerState({})},
   {id: 4, sound: asset('final_sample/conga_win.mp3'), playerState: new MediaPlayerState({})},
-  {id: 5, sound: asset('final_sample/violin_win.wav'), playerState: new MediaPlayerState({})},
-  {id: 6,sound: asset('final_sample/elec_guitar_win.wav'), playerState: new MediaPlayerState({})},
+  {id: 5, sound: asset('final_sample/violin_win.mp3'), playerState: new MediaPlayerState({})},
+  {id: 6,sound: asset('final_sample/elec_guitar_win.mp3'), playerState: new MediaPlayerState({})},
 ]
 const START_SOUNDS = [
-  {id: 1, sound: asset('start_sample/piano_samp.wav'), playerState: new MediaPlayerState({})},
-  {id: 2, sound: asset('start_sample/acc_guitar_samp.wav'), playerState: new MediaPlayerState({})},
-  {id: 3, sound: asset('start_sample/drums_samp.wav'), playerState: new MediaPlayerState({})},
+  {id: 1, sound: asset('start_sample/piano_samp.mp3'), playerState: new MediaPlayerState({})},
+  {id: 2, sound: asset('start_sample/acc_guitar_samp.mp3'), playerState: new MediaPlayerState({})},
+  {id: 3, sound: asset('start_sample/drum_samp.mp3'), playerState: new MediaPlayerState({})},
   {id: 4, sound: asset('start_sample/conga_samp.mp3'), playerState: new MediaPlayerState({})},
-  {id: 5, sound: asset('start_sample/violin_samp.wav'), playerState: new MediaPlayerState({})},
-  {id: 6, sound: asset('start_sample/elec_guit_samp.wav'), playerState: new MediaPlayerState({})},
+  {id: 5, sound: asset('start_sample/violin_samp.mp3'), playerState: new MediaPlayerState({})},
+  {id: 6, sound: asset('start_sample/elec_guit_samp.mp3'), playerState: new MediaPlayerState({})},
 ]
 
 export default class SoundsGame extends React.Component {
@@ -66,7 +66,7 @@ export default class SoundsGame extends React.Component {
           (playerState) => {
             playerState.play()
           },
-          3000,
+          12000,
           this.state.cheerPlayerState
         )
       }
@@ -236,7 +236,8 @@ export default class SoundsGame extends React.Component {
             key={index + 1}
             onClick={ () => ( (index == this.state.correct_sound) ? this.onInstrumentClicked(index) : null)}
             sound={this.state.winSounds[index].sound}
-            playerState={this.state.winSounds[index].playerState}>
+            playerState={this.state.winSounds[index].playerState}
+             volume={2}>
             {instrument}
           </SoundInstrument>
         );
