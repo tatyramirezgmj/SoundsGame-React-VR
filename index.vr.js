@@ -86,20 +86,20 @@ export default class SoundsGame extends React.Component {
     this.newInstrumentClicked(this.state.correct_sound);
   }
 
-  // componentDidMount(){
-  //   fetch('http://localhost:8081/vr/index.html', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       score: this.state.score
-  //     })
-  //   })
-  //   .then((data)=> {
-  //     console.log(data);
-  //   })
-  // }
+  componentDidMount(){
+    fetch('http://localhost:3000/game/1/sounds_game', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        score: this.state.score
+      })
+    })
+    .then((data)=> {
+      console.log(data);
+    })
+  }
 
   render() {
     const instruments=[
@@ -192,8 +192,6 @@ export default class SoundsGame extends React.Component {
     <View>
       <Scene style={{transform: [{translate: [-15, -5.5, 0]}, {rotateY: 0}]}} />
 
-      {/* <Text style={styles.score}>
-        Score: {this.state.score}</Text> */}
 
       <Pano source={asset('sky.jpg')}/>
 
