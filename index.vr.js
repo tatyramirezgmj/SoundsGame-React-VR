@@ -52,13 +52,22 @@ export default class SoundsGame extends React.Component {
       console.log('correct sound', this.state.correct_sound)
       console.log('score', prevState.score)
       console.log('Props', props);
-      console.log("New score:",(index === this.state.correct_sound) ? (Number(prevState.score) + 1000) : (Number(prevState.score) - 1000));
+      console.log("New score:",(index === this.state.correct_sound) ? (Number(prevState.score) + 20) : (Number(prevState.score) - 1));
       return {
-        score: (index === this.state.correct_sound) ? (Number(prevState.score) + 1000) : (Number(prevState.score) - 1000)
+        score: (index === this.state.correct_sound) ? (Number(prevState.score) + 20) : (Number(prevState.score) - 1)
       }
     }, () => {
       console.log('HELLOOOOO', this.state.score);
       if (index === this.state.correct_sound) {
+        fetch(`http://localhost:3000/game/1/update_score?score=${this.state.score}`, {
+          method: 'GET'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.score !== undefined ) {
+          this.setState({score: data.score});
+        }
+      })
         if (this.state.cheerTimeout) {
           clearInterval(this.state.cheerTimeout);
         }
@@ -71,7 +80,7 @@ export default class SoundsGame extends React.Component {
         )
       }
     })
-  }
+}
 
   newInstrumentClicked(index) {
     let startSound = this.state.startSounds[index]
@@ -86,20 +95,6 @@ export default class SoundsGame extends React.Component {
     this.newInstrumentClicked(this.state.correct_sound);
   }
 
-  componentDidMount(){
-    fetch('http://localhost:3000/game/1/sounds_game', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        score: this.state.score
-      })
-    })
-    .then((data)=> {
-      console.log(data);
-    })
-  }
 
   render() {
     const instruments=[
