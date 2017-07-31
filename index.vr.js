@@ -95,6 +95,17 @@ export default class SoundsGame extends React.Component {
     this.newInstrumentClicked(this.state.correct_sound);
   }
 
+componentDidMount(){
+  fetch(`http://localhost:3000/game/1/get_score`, {
+    method: 'GET'
+})
+.then(response => response.json())
+.then(data => {
+  if(data.score !== undefined ) {
+    this.setState({score: data.score});
+  }
+})
+}
 
   render() {
     const instruments=[
