@@ -52,12 +52,11 @@ export default class SoundsGame extends React.Component {
       console.log('correct sound', this.state.correct_sound)
       console.log('score', prevState.score)
       console.log('Props', props);
-      console.log("New score:",(index === this.state.correct_sound) ? (Number(prevState.score) + 20) : (Number(prevState.score) - 1));
       return {
-        score: (index === this.state.correct_sound) ? (Number(prevState.score) + 20) : (Number(prevState.score) - 1)
+        score: (index === this.state.correct_sound) ? (Number(prevState.score) + 1) : (Number(prevState.score) - 1)
       }
     }, () => {
-      console.log('HELLOOOOO', this.state.score);
+      console.log('Score', this.state.score);
       if (index === this.state.correct_sound) {
         fetch(`http://localhost:3000/game/1/update_score?score=${this.state.score}`, {
           method: 'GET'
@@ -103,6 +102,7 @@ componentDidMount(){
 .then(data => {
   if(data.score !== undefined ) {
     this.setState({score: data.score});
+    // this.setState({score: data.score.reduce((a, b)=> a + b, 0)});
   }
 })
 }
