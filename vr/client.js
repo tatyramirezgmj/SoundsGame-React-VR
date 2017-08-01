@@ -5,6 +5,7 @@
 // Auto-generated content.
 import {VRInstance} from 'react-vr-web';
 
+
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'SoundsGame', parent, {
     // Add custom options here

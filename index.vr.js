@@ -58,9 +58,9 @@ export default class SoundsGame extends React.Component {
     }, () => {
       console.log('Score', this.state.score);
       if (index === this.state.correct_sound) {
-        fetch(`http://localhost:3000/game/1/update_score?score=${this.state.score}`, {
+        fetch(`http://localhost:3000/game/1/user/${this.props.userId}/update_score?score=${this.state.score}`, {
           method: 'GET'
-      })
+        })
       .then(response => response.json())
       .then(data => {
         if(data.score !== undefined ) {
@@ -95,16 +95,19 @@ export default class SoundsGame extends React.Component {
   }
 
 componentDidMount(){
-  fetch(`http://localhost:3000/game/1/get_score`, {
+  console.dir(this);
+
+  fetch(`http://localhost:3000/game/1/user/${this.props.userId}/get_score`, {
     method: 'GET'
-})
-.then(response => response.json())
-.then(data => {
-  if(data.score !== undefined ) {
-    this.setState({score: data.score});
-    // this.setState({score: data.score.reduce((a, b)=> a + b, 0)});
-  }
-})
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    if(data.score !== undefined ) {
+      this.setState({score: data.score});
+      // this.setState({score: data.score.reduce((a, b)=> a + b, 0)});
+    }
+  })
 }
 
   render() {

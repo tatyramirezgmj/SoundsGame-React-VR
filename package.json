@@ -10,12 +10,21 @@
     "test": "jest"
   },
   "dependencies": {
+    "fetch-cookie": "^0.6.0",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "net": "^1.0.2",
+    "node-fetch": "^1.7.1",
     "ovrui": "~1.4.0",
     "react": "^15.6.1",
     "react-native": "^0.42.3",
+    "react-native-cookies": "^3.1.0",
     "react-vr": "~1.4.0",
     "react-vr-web": "~1.4.0",
-    "three": "^0.80.1"
+    "stream": "0.0.2",
+    "three": "^0.80.1",
+    "url": "^0.11.0",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
